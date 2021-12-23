@@ -1,3 +1,4 @@
+import 'package:airplane_ticketing/ui/pages/onboarding.dart';
 import 'package:airplane_ticketing/ui/pages/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       
-      home: SplashPage(),
+      home: OnboardPage(),
     );
   }
 }
