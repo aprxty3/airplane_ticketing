@@ -55,7 +55,7 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Full Name',
+                'Email Address',
                 style: signStyle,
               ),
               const SizedBox(
@@ -64,7 +64,7 @@ class SignUpPage extends StatelessWidget {
               TextFormField(
                 cursorColor: sPrimaryColor,
                 decoration: InputDecoration(
-                  hintText: 'Your Full Name',
+                  hintText: 'Input Email',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
@@ -86,7 +86,7 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Full Name',
+                'Password',
                 style: signStyle,
               ),
               const SizedBox(
@@ -94,8 +94,9 @@ class SignUpPage extends StatelessWidget {
               ),
               TextFormField(
                 cursorColor: sPrimaryColor,
+                obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Your Full Name',
+                  hintText: 'Input Password',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
@@ -117,7 +118,7 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Full Name',
+                'Hobby',
                 style: signStyle,
               ),
               const SizedBox(
@@ -126,7 +127,7 @@ class SignUpPage extends StatelessWidget {
               TextFormField(
                 cursorColor: sPrimaryColor,
                 decoration: InputDecoration(
-                  hintText: 'Your Full Name',
+                  hintText: 'Your Hobby',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
@@ -141,8 +142,28 @@ class SignUpPage extends StatelessWidget {
         );
       }
 
+      Widget button() {
+        return Container(
+          width: double.infinity,
+          height: 55,
+          child: TextButton(
+            style: TextButton.styleFrom(
+              backgroundColor: kPrimaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(defaultRadius),
+              ),
+            ),
+            onPressed: () {},
+            child: Text(
+              'Sign Up',
+              style: buttonStyle,
+            ),
+          ),
+        );
+      }
+
       return Container(
-        margin: const EdgeInsets.only(top: 30, bottom: 50),
+        margin: const EdgeInsets.only(top: 30, bottom: 10),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         decoration: BoxDecoration(
           color: sWhiteColor,
@@ -154,7 +175,23 @@ class SignUpPage extends StatelessWidget {
             email(),
             password(),
             hobby(),
+            button(),
           ],
+        ),
+      );
+    }
+
+    Widget terms() {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 70),
+        child: Center(
+          child: InkWell(
+            onTap: () {},
+            child: Text(
+              'Terms and Conditions',
+              style: shadowStyle,
+            ),
+          ),
         ),
       );
     }
@@ -167,6 +204,7 @@ class SignUpPage extends StatelessWidget {
           children: [
             title(),
             textform(),
+            terms(),
           ],
         ),
       ),
