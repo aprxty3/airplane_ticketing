@@ -40,10 +40,12 @@ class OnboardPage extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor: kPrimaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(17),
+                        borderRadius: BorderRadius.circular(defaultRadius),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/sign_up');
+                    },
                     child: Text(
                       'Get Started',
                       style: buttonStyle,
