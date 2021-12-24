@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+double defaultMargin = 24.0;
+double defaultRadius = 17.0;
+
 //COLORS
 Color kPrimaryColor = const Color(0xff5C40CC); //Untuk Container Keseringan
 Color sbPrimaryColor = const Color(0xff3F32B2); //Untuk Gradasi
