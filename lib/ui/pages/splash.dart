@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:airplane_ticketing/ui/pages/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
