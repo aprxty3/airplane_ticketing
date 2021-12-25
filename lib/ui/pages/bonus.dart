@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 
 class BonusPage extends StatelessWidget {
@@ -99,25 +100,12 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget button() {
-      return Container(
+      return ButtonWidget(
+        title: 'Start Fly Now',
+        onPressed: () {
+          Navigator.pushNamed(context, '/home');
+        },
         width: 220,
-        height: 55,
-        // color: Colors.blue,
-        child: TextButton(
-          style: TextButton.styleFrom(
-            backgroundColor: kPrimaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(defaultRadius),
-            ),
-          ),
-          onPressed: () {
-            Navigator.pushNamed(context, '/home');
-          },
-          child: Text(
-            'Start Fly Now',
-            style: buttonStyle,
-          ),
-        ),
       );
     }
 
