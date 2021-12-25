@@ -239,3 +239,9 @@ TextStyle bonusNameStyle3 = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: sWhiteColor,
 );
+
+TextStyle payStyle = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w500,
+  color: sWhiteColor,
+);
