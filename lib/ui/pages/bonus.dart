@@ -19,22 +19,104 @@ class BonusPage extends StatelessWidget {
             BoxShadow(
               color: kPrimaryColor.withOpacity(0.5),
               blurRadius: 50,
-              offset: Offset(0, 10),
+              offset: const Offset(0, 10),
             ),
           ],
         ),
         child: Column(
+          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('hahaha'),
+                    Text(
+                      'Name',
+                      style: bonusNameStyle1,
+                    ),
+                    Text(
+                      'Aji Prasetyo',
+                      style: bonusNameStyle2,
+                    ),
                   ],
-                )
+                ),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/icon_plane.png',
+                      width: 24,
+                    ),
+                    const SizedBox(
+                      width: 6,
+                    ),
+                    Text(
+                      'Pay',
+                      style: payStyle,
+                    ),
+                  ],
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Text(
+              'Balance',
+              style: bonusNameStyle1,
+            ),
+            Text(
+              'IDR 280.000.000',
+              style: bonusNameStyle3,
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget bonus() {
+      return Container(
+        margin: const EdgeInsets.only(top: 80, bottom: 50),
+        child: Column(
+          children: [
+            Text(
+              'Big Bonus 🎉',
+              style: bonustStyle1,
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'We give you early credit so that \nyou can buy a flight ticket',
+              style: bonusStyle2,
+              textAlign: TextAlign.center,
             )
           ],
+        ),
+      );
+    }
+
+    Widget button() {
+      return Container(
+        width: 220,
+        height: 55,
+        // color: Colors.blue,
+        child: TextButton(
+          style: TextButton.styleFrom(
+            backgroundColor: kPrimaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(defaultRadius),
+            ),
+          ),
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
+          child: Text(
+            'Start Fly Now',
+            style: buttonStyle,
+          ),
         ),
       );
     }
@@ -46,6 +128,8 @@ class BonusPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             bonusCard(),
+            bonus(),
+            button(),
           ],
         ),
       ),
