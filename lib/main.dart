@@ -1,3 +1,4 @@
+import 'package:airplane_ticketing/ui/pages/bonus.dart';
 import 'package:airplane_ticketing/ui/pages/onboarding.dart';
 import 'package:airplane_ticketing/ui/pages/sign_up.dart';
 import 'package:airplane_ticketing/ui/pages/splash.dart';
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashPage(),
         '/onboard': (context) => const OnboardPage(),
         '/sign_up': (context) => const SignUpPage(),
+        '/bonus': (context) => const BonusPage(),
       },
     );
   }
