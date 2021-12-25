@@ -1,6 +1,7 @@
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/widget/bottom_nav.dart';
 import 'package:airplane_ticketing/ui/widget/destination.dart';
+import 'package:airplane_ticketing/ui/widget/destination_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -93,13 +94,62 @@ class HomePage extends StatelessWidget {
         );
       }
 
+      Widget newDestination() {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              'You Must To Here!!',
+              style: typeStyle,
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            DesTile(
+              imageUrl: 'assets/image_destination6.png',
+              destination1: 'Danau Beratan',
+              destination2: 'Singaraja',
+              rate: 4.5,
+            ),
+            DesTile(
+              imageUrl: 'assets/image_destination7.png',
+              destination1: 'Opera',
+              destination2: 'Sydney',
+              rate: 4.9,
+            ),
+            DesTile(
+              imageUrl: 'assets/image_destination8.png',
+              destination1: 'Roma',
+              destination2: 'Italy',
+              rate: 4.3,
+            ),
+            DesTile(
+              imageUrl: 'assets/image_destination9.png',
+              destination1: 'Kicir-Kicir',
+              destination2: 'Ancol',
+              rate: 3.8,
+            ),
+            DesTile(
+              imageUrl: 'assets/image_destination10.png',
+              destination1: 'Kampung Pelangi',
+              destination2: 'heyho',
+              rate: 4.4,
+            ),
+          ],
+        );
+      }
+
       return SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10, bottom: 90),
           child: Column(
             children: [
               header(),
               slider(),
+              newDestination(),
             ],
           ),
         ),
