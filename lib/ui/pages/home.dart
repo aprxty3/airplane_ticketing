@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/widget/bottom_nav.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -57,94 +58,20 @@ class HomePage extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    width: 24,
-                    height: 24,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icon_home.png'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 30,
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: kPrimaryColor,
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                    ),
-                  )
-                ],
+            children: const [
+              BottomNavIcon(
+                imageUrl: 'assets/icon_home.png',
+                isActive: true,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    width: 24,
-                    height: 24,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icon_booking.png'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 30,
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                    ),
-                  )
-                ],
+              BottomNavIcon(
+                  imageUrl: 'assets/icon_booking.png', isActive: false),
+              BottomNavIcon(
+                imageUrl: 'assets/icon_card.png',
+                isActive: false,
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    width: 24,
-                    height: 24,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icon_card.png'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 30,
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                    ),
-                  )
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    width: 24,
-                    height: 24,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage('assets/icon_settings.png'),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 30,
-                    height: 2,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(defaultRadius),
-                    ),
-                  )
-                ],
+              BottomNavIcon(
+                imageUrl: 'assets/icon_settings.png',
+                isActive: false,
               ),
             ],
           ),
