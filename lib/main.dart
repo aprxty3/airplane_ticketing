@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         '/onboard': (context) => const OnboardPage(),
         '/sign_up': (context) => const SignUpPage(),
         '/bonus': (context) => const BonusPage(),
-                '/home': (context) => const HomePage(),
+        '/home': (context) => const HomePage(),
       },
     );
   }
