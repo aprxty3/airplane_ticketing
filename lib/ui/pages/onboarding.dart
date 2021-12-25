@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 
 class OnboardPage extends StatelessWidget {
@@ -31,26 +32,13 @@ class OnboardPage extends StatelessWidget {
                   style: onboardStyle2,
                   textAlign: TextAlign.center,
                 ),
-                Container(
-                  margin: const EdgeInsets.only(top: 50, bottom: 80),
+                ButtonWidget(
+                  title: 'Get Started',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign_up');
+                  },
+                  margin:const EdgeInsets.only(top: 50, bottom: 80),
                   width: 220,
-                  height: 55,
-                  // color: Colors.blue,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                      backgroundColor: kPrimaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(defaultRadius),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/sign_up');
-                    },
-                    child: Text(
-                      'Get Started',
-                      style: buttonStyle,
-                    ),
-                  ),
                 ),
               ],
             ),

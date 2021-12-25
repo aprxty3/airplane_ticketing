@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
@@ -143,24 +144,11 @@ class SignUpPage extends StatelessWidget {
       }
 
       Widget button() {
-        return Container(
-          width: double.infinity,
-          height: 55,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(defaultRadius),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/bonus');
-            },
-            child: Text(
-              'Sign Up',
-              style: buttonStyle,
-            ),
-          ),
+        return ButtonWidget(
+          title: 'Sign Up',
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
         );
       }
 
