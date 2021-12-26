@@ -30,33 +30,31 @@ class DesTile extends StatelessWidget {
           Container(
             width: 70,
             height: 70,
+            margin: const EdgeInsets.only(right: 16),
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(imageUrl),
+                fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(defaultRadius),
             ),
           ),
-          Container(
-            margin:
-                const EdgeInsets.only(left: 16, top: 8, bottom: 8, right: 20),
-            child: Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    destination1,
-                    style: destinationStyle1,
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                    destination2,
-                    style: destinationStyle2,
-                  ),
-                ],
-              ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  destination1,
+                  style: destinationStyle1,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  destination2,
+                  style: destinationStyle2,
+                ),
+              ],
             ),
           ),
           Container(
