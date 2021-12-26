@@ -95,50 +95,51 @@ class HomePage extends StatelessWidget {
       }
 
       Widget newDestination() {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Text(
-              'You Must To Here!!',
-              style: typeStyle,
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            DesTile(
-              imageUrl: 'assets/image_destination6.png',
-              destination1: 'Danau Beratan',
-              destination2: 'Singaraja',
-              rate: 4.5,
-            ),
-            DesTile(
-              imageUrl: 'assets/image_destination7.png',
-              destination1: 'Opera',
-              destination2: 'Sydney',
-              rate: 4.9,
-            ),
-            DesTile(
-              imageUrl: 'assets/image_destination8.png',
-              destination1: 'Roma',
-              destination2: 'Italy',
-              rate: 4.3,
-            ),
-            DesTile(
-              imageUrl: 'assets/image_destination9.png',
-              destination1: 'Kicir-Kicir',
-              destination2: 'Ancol',
-              rate: 3.8,
-            ),
-            DesTile(
-              imageUrl: 'assets/image_destination10.png',
-              destination1: 'Kampung Pelangi',
-              destination2: 'heyho',
-              rate: 4.4,
-            ),
-          ],
+        return Container(
+          margin: EdgeInsets.only(
+              top: 20, right: defaultMargin, left: defaultMargin),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'You Must To Here!!',
+                style: typeStyle,
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              DesTile(
+                imageUrl: 'assets/image_destination6.png',
+                destination1: 'Danau Beratan',
+                destination2: 'Singaraja',
+                rate: 4.5,
+              ),
+              DesTile(
+                imageUrl: 'assets/image_destination7.png',
+                destination1: 'Opera',
+                destination2: 'Sydney',
+                rate: 4.9,
+              ),
+              DesTile(
+                imageUrl: 'assets/image_destination8.png',
+                destination1: 'Roma',
+                destination2: 'Italy',
+                rate: 4.3,
+              ),
+              DesTile(
+                imageUrl: 'assets/image_destination9.png',
+                destination1: 'Kicir-Kicir',
+                destination2: 'Ancol',
+                rate: 3.8,
+              ),
+              DesTile(
+                imageUrl: 'assets/image_destination10.png',
+                destination1: 'Kampung Pelangi',
+                destination2: 'heyho',
+                rate: 4.4,
+              ),
+            ],
+          ),
         );
       }
 
