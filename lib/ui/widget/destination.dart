@@ -62,7 +62,7 @@ class PopularDestination extends StatelessWidget {
                         width: 24,
                       ),
                       Text(
-                        '$rate',
+                        rate.toString(),
                         style: ratingStyle1,
                       )
                     ],
