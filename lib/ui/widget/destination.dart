@@ -25,7 +25,7 @@ class PopularDestination extends StatelessWidget {
       child: Container(
         width: 200,
         height: 323,
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(defaultRadius),
@@ -80,6 +80,7 @@ class PopularDestination extends StatelessWidget {
                   Text(
                     destination1,
                     style: destinationStyle1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(
                     height: 5,
