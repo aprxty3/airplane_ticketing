@@ -53,11 +53,11 @@ class HomePage extends StatelessWidget {
 
       Widget slider() {
         return Container(
-          margin: EdgeInsets.only(top: 30),
+          margin: const EdgeInsets.only(top: 30),
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
+              children: const [
                 PopularDestination(
                   imageUrl: 'assets/image_destination1.png',
                   rate: 4.8,
@@ -108,31 +108,31 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              DesTile(
+              const DesTile(
                 imageUrl: 'assets/image_destination6.png',
                 destination1: 'Danau Beratan',
                 destination2: 'Singaraja',
                 rate: 4.5,
               ),
-              DesTile(
+              const DesTile(
                 imageUrl: 'assets/image_destination7.png',
                 destination1: 'Opera',
                 destination2: 'Sydney',
                 rate: 4.9,
               ),
-              DesTile(
+              const DesTile(
                 imageUrl: 'assets/image_destination8.png',
                 destination1: 'Roma',
                 destination2: 'Italy',
                 rate: 4.3,
               ),
-              DesTile(
+              const DesTile(
                 imageUrl: 'assets/image_destination9.png',
                 destination1: 'Kicir-Kicir',
                 destination2: 'Ancol',
                 rate: 3.8,
               ),
-              DesTile(
+              const DesTile(
                 imageUrl: 'assets/image_destination10.png',
                 destination1: 'Kampung Pelangi',
                 destination2: 'heyho',
