@@ -10,7 +10,7 @@ class SignUpPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget title() {
       return Container(
-        margin: const EdgeInsets.only(top: 10),
+        margin: const EdgeInsets.only(top: 65),
         child: Text(
           'Join us and get \nyour next journey',
           style: mainStyle,
@@ -65,7 +65,7 @@ class SignUpPage extends StatelessWidget {
       }
 
       return Container(
-        margin: const EdgeInsets.only(top: 30, bottom: 10),
+        margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         decoration: BoxDecoration(
           color: sWhiteColor,
@@ -85,7 +85,7 @@ class SignUpPage extends StatelessWidget {
 
     Widget terms() {
       return Container(
-        margin: const EdgeInsets.only(bottom: 70),
+        margin: const EdgeInsets.only(bottom: 30),
         child: Center(
           child: TextButton(
             onPressed: () {},
@@ -100,15 +100,13 @@ class SignUpPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBgColor,
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: defaultMargin),
-          children: [
-            title(),
-            textform(),
-            terms(),
-          ],
-        ),
+      body: ListView(
+        padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+        children: [
+          title(),
+          textform(),
+          terms(),
+        ],
       ),
     );
   }
