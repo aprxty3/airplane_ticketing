@@ -233,14 +233,16 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBgColor,
-      body: Stack(
-        children: [
-          backView(),
-          shadow(),
-          title(),
-          content(),
-          booking(),
-        ],
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            backView(),
+            shadow(),
+            title(),
+            content(),
+            booking(),
+          ],
+        ),
       ),
     );
   }
