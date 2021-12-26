@@ -18,8 +18,10 @@ class PopularDestination extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/detail');
+      },
       child: Container(
         width: 200,
         height: 323,
