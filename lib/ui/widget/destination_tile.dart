@@ -46,6 +46,7 @@ class DesTile extends StatelessWidget {
                 Text(
                   destination1,
                   style: destinationStyle1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 const SizedBox(
                   height: 5,
