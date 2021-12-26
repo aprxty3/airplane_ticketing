@@ -13,7 +13,7 @@ class TextForm extends StatelessWidget {
     required this.title,
     required this.hitText,
     this.isActive = false,
-     this.bottom = EdgeInsets.zero,
+    this.bottom = EdgeInsets.zero,
   }) : super(key: key);
 
   @override
