@@ -170,16 +170,20 @@ class DetailPage extends StatelessWidget {
                     const SizedBox(
                       height: 6,
                     ),
-                    const Interest(
-                      interest1: 'Kids Park',
-                      interest2: 'Honor Bridge',
+                    Row(
+                      children: const [
+                        Interest(interest1: 'Kids Park'),
+                        Interest(interest1: 'Honor Bridge')
+                      ],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    const Interest(
-                      interest1: 'City Museum',
-                      interest2: 'Central Mall',
+                    Row(
+                      children: const [
+                        Interest(interest1: 'City Museum'),
+                        Interest(interest1: 'Central Mall'),
+                      ],
                     ),
                   ],
                 ),
