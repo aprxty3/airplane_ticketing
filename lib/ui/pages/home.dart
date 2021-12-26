@@ -145,7 +145,7 @@ class HomePage extends StatelessWidget {
 
       return SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(top: 10, bottom: 90),
+          padding: const EdgeInsets.only(top: 65, bottom: 90),
           child: Column(
             children: [
               header(),
@@ -195,13 +195,11 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: kBgColor,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            mainPage(),
-            bottomNav(),
-          ],
-        ),
+      body: Stack(
+        children: [
+          mainPage(),
+          bottomNav(),
+        ],
       ),
     );
   }
