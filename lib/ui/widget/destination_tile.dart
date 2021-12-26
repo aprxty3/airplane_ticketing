@@ -38,30 +38,28 @@ class DesTile extends StatelessWidget {
             ),
           ),
           Container(
-            width: 165,
-            height: 53,
             margin:
                 const EdgeInsets.only(left: 16, top: 8, bottom: 8, right: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  destination1,
-                  style: destinationStyle1,
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  destination2,
-                  style: destinationStyle2,
-                ),
-              ],
+            child: Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    destination1,
+                    style: destinationStyle1,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    destination2,
+                    style: destinationStyle2,
+                  ),
+                ],
+              ),
             ),
           ),
           Container(
-            width: 51,
-            height: 24,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
