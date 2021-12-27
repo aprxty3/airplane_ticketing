@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/widget/availability.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -75,8 +76,12 @@ class SeatPage extends StatelessWidget {
     Widget choseSeat() {
       Widget indicator() {
         return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Expanded(
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
               child: Center(
                 child: Text(
                   'A',
@@ -84,7 +89,10 @@ class SeatPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
               child: Center(
                 child: Text(
                   'B',
@@ -92,7 +100,10 @@ class SeatPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
               child: Center(
                 child: Text(
                   ' ',
@@ -100,7 +111,10 @@ class SeatPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
               child: Center(
                 child: Text(
                   'C',
@@ -108,7 +122,10 @@ class SeatPage extends StatelessWidget {
                 ),
               ),
             ),
-            Expanded(
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
               child: Center(
                 child: Text(
                   'D',
@@ -120,19 +137,181 @@ class SeatPage extends StatelessWidget {
         );
       }
 
+      Widget seat1() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            const AvailabilityWidget(
+              index: 0,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Text(
+                  '1',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            const AvailabilityWidget(
+              index: 1,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+          ],
+        );
+      }
+
+      Widget seat2() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const AvailabilityWidget(
+              index: 1,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Text(
+                  '2',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            const AvailabilityWidget(
+              index: 1,
+            ),
+            const AvailabilityWidget(
+              index: 1,
+            ),
+          ],
+        );
+      }
+
+      Widget seat3() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Text(
+                  '3',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            const AvailabilityWidget(
+              index: 0,
+            ),
+            const AvailabilityWidget(
+              index: 0,
+            ),
+          ],
+        );
+      }
+
+      Widget seat4() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const AvailabilityWidget(
+              index: 0,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Text(
+                  '4',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            const AvailabilityWidget(
+              index: 0,
+            ),
+            const AvailabilityWidget(
+              index: 0,
+            ),
+          ],
+        );
+      }
+
+      Widget seat5() {
+        return Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            Container(
+              margin: const EdgeInsets.all(0),
+              width: 48,
+              height: 48,
+              child: Center(
+                child: Text(
+                  '5',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+            const AvailabilityWidget(
+              index: 2,
+            ),
+          ],
+        );
+      }
+
       return Container(
-        margin: const EdgeInsets.symmetric(vertical: 30),
-        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 22),
+        margin: const EdgeInsets.symmetric(vertical: 20),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
         width: double.infinity,
         height: 500,
         decoration: BoxDecoration(
           color: sWhiteColor,
           borderRadius: BorderRadius.circular(defaultRadius),
         ),
-        child: Column(
-          children: [
-            indicator(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              indicator(),
+              seat1(),
+              seat2(),
+              seat3(),
+              seat4(),
+              seat5(),
+            ],
+          ),
         ),
       );
     }
