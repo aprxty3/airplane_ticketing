@@ -73,13 +73,66 @@ class SeatPage extends StatelessWidget {
     }
 
     Widget choseSeat() {
+      Widget indicator() {
+        return Row(
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  'A',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'B',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  ' ',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'C',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Center(
+                child: Text(
+                  'D',
+                  style: seatStyle1,
+                ),
+              ),
+            ),
+          ],
+        );
+      }
+
       return Container(
         margin: const EdgeInsets.symmetric(vertical: 30),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 22),
         width: double.infinity,
         height: 500,
         decoration: BoxDecoration(
           color: sWhiteColor,
           borderRadius: BorderRadius.circular(defaultRadius),
+        ),
+        child: Column(
+          children: [
+            indicator(),
+          ],
         ),
       );
     }
