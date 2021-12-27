@@ -14,6 +14,8 @@ Color sWhiteColor = Colors.white; //Untuk Font Juga
 Color sGreyColor = const Color(0xff9698A9); //Untuk Font Keseringan
 Color s2GreyColor = const Color(0xffDBD7EC); //Untuk Container TextFormField
 Color kBgColor = const Color(0xffFAFAFA); //Buat Background
+Color unavailableColor = const Color(0xffEBECF1);
+Color availableColor = const Color(0xffE0D9FF);
 
 //TextStyle
 TextStyle mainStyle = GoogleFonts.poppins(
