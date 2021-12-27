@@ -10,7 +10,7 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget backView() {
-      return Container(
+      return Container(margin: const EdgeInsets.all(0),
         width: double.infinity,
         height: 450,
         child: Image.asset(
