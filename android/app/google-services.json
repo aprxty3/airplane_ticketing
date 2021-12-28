@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "482737926088",
+    "project_id": "ticket-booking-b3562",
+    "storage_bucket": "ticket-booking-b3562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:482737926088:android:8be02d02fad149e717dafd",
+        "android_client_info": {
+          "package_name": "com.aprxty3.airplane_ticketing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "482737926088-bqkj2q53hvufcpj43r8mmhghc1t4qd9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDC6IN2sBM9BUf0_Ue42wpE7QRYMbnMAM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "482737926088-bqkj2q53hvufcpj43r8mmhghc1t4qd9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
