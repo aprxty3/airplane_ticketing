@@ -37,7 +37,10 @@ class SuccessPage extends StatelessWidget {
               ),
               ButtonWidget(
                 title: 'My Booking',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/home', (route) => false);
+                },
                 width: 220,
                 margin: const EdgeInsets.only(top: 50),
               )
