@@ -1,15 +1,37 @@
+import 'package:airplane_ticketing/cubit/pages_cubit.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/pages/home.dart';
+import 'package:airplane_ticketing/ui/pages/setting.dart';
+import 'package:airplane_ticketing/ui/pages/transaction.dart';
+import 'package:airplane_ticketing/ui/pages/wallet.dart';
 import 'package:airplane_ticketing/ui/widget/bottom_nav.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
   @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  @override
   Widget build(BuildContext context) {
-    Widget buildContent() {
-      return const HomePage();
+    Widget buildContent(int currentIndex) {
+      switch (currentIndex) {
+        case 0:
+          return const HomePage();
+        case 1:
+          return const TransactionPage();
+        case 2:
+          return const WalletPage();
+        case 3:
+          return const SettingPage();
+
+        default:
+          return const HomePage();
+      }
     }
 
     Widget bottomNav() {
@@ -27,20 +49,22 @@ class MainPage extends StatelessWidget {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const [
+            children: [
               BottomNavIcon(
+                index: 0,
                 imageUrl: 'assets/icon_home.png',
-                isActive: true,
               ),
               BottomNavIcon(
-                  imageUrl: 'assets/icon_booking.png', isActive: false),
+                index: 1,
+                imageUrl: 'assets/icon_booking.png',
+              ),
               BottomNavIcon(
+                index: 2,
                 imageUrl: 'assets/icon_card.png',
-                isActive: false,
               ),
               BottomNavIcon(
+                index: 3,
                 imageUrl: 'assets/icon_settings.png',
-                isActive: false,
               ),
             ],
           ),
@@ -48,14 +72,18 @@ class MainPage extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      backgroundColor: kBgColor,
-      body: Stack(
-        children: [
-          buildContent(),
-          bottomNav(),
-        ],
-      ),
+    return BlocBuilder<PagesCubit, int>(
+      builder: (context, currentIndex) {
+        return Scaffold(
+          backgroundColor: kBgColor,
+          body: Stack(
+            children: [
+              buildContent(currentIndex),
+              bottomNav(),
+            ],
+          ),
+        );
+      },
     );
   }
 }
