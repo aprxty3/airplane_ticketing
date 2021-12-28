@@ -28,7 +28,7 @@ class SuccessPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 10,
+                height: 10,                                    
               ),
               Text(
                 'Are you ready to explore the new \nworld of experiences?',
