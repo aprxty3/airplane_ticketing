@@ -8,8 +8,8 @@ class TransactionPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBgColor,
-      body: Column(
-        children: [Text('HAHAHAHAH')],
+      body: const Center(
+        child: Text('Transaction'),
       ),
     );
   }
