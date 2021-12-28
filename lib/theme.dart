@@ -171,20 +171,20 @@ TextStyle seatPriceStyle = GoogleFonts.poppins(
 //CHECKOUT
 TextStyle coStyle1 = GoogleFonts.poppins(
   fontSize: 14,
-  fontWeight: FontWeight.w600,
-  color: sPrimaryColor,
+  fontWeight: FontWeight.w300,
+  color: sGreyColor,
 );
 
 TextStyle coStyle2 = GoogleFonts.poppins(
   fontSize: 14,
-  fontWeight: FontWeight.w600,
-  color: sbbPrimaryColor,
+  fontWeight: FontWeight.w400,
+  color: sPrimaryColor,
 );
 
 TextStyle coStyle3 = GoogleFonts.poppins(
   fontSize: 14,
   fontWeight: FontWeight.w600,
-  color: sGreenColor,
+  color: sPrimaryColor,
 );
 
 TextStyle coStyle4 = GoogleFonts.poppins(
@@ -197,6 +197,12 @@ TextStyle paymentStyle1 = GoogleFonts.poppins(
   fontSize: 16,
   fontWeight: FontWeight.w600,
   color: sPrimaryColor,
+);
+
+TextStyle payment = GoogleFonts.poppins(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  color: sWhiteColor,
 );
 
 TextStyle paymentStyle2 = GoogleFonts.poppins(
