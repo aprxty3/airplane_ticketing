@@ -27,29 +27,30 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: kPrimaryColor,
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset(
-                'assets/icon_plane.png',
-                width: 100,
+      backgroundColor: kPrimaryColor,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'assets/icon_plane.png',
+              width: 100,
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            Text(
+              'TICKAIR',
+              style: GoogleFonts.poppins(
+                fontSize: 32,
+                fontWeight: FontWeight.w500,
+                color: sWhiteColor,
+                letterSpacing: 12,
               ),
-              const SizedBox(
-                height: 50,
-              ),
-              Text(
-                'TICKAIR',
-                style: GoogleFonts.poppins(
-                  fontSize: 32,
-                  fontWeight: FontWeight.w500,
-                  color: sWhiteColor,
-                  letterSpacing: 12,
-                ),
-              )
-            ],
-          ),
-        ));
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
