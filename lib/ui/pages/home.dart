@@ -1,5 +1,5 @@
 import 'package:airplane_ticketing/theme.dart';
-import 'package:airplane_ticketing/ui/widget/bottom_nav.dart';
+
 import 'package:airplane_ticketing/ui/widget/destination.dart';
 import 'package:airplane_ticketing/ui/widget/destination_tile.dart';
 import 'package:flutter/material.dart';
