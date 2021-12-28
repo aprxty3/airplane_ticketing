@@ -250,9 +250,26 @@ class COPage extends StatelessWidget {
     Widget button() {
       return ButtonWidget(
         title: 'Pay Now',
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/success');
+        },
         width: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: 20),
+      );
+    }
+
+    Widget terms() {
+      return Container(
+        margin: const EdgeInsets.only(bottom: 30),
+        child: Center(
+          child: TextButton(
+            onPressed: () {},
+            child: Text(
+              'Terms and Conditions',
+              style: shadowStyle,
+            ),
+          ),
+        ),
       );
     }
 
@@ -265,6 +282,7 @@ class COPage extends StatelessWidget {
           content(),
           paymentDetail(),
           button(),
+          terms(),
         ],
       ),
     );
