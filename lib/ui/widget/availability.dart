@@ -65,6 +65,7 @@ class AvailabilityWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         border: Border.all(
           color: borderColor(),
+          width: 2,
         ),
       ),
       child: child(),
