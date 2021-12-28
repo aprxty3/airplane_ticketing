@@ -296,7 +296,7 @@ class SeatPage extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 20),
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
         width: double.infinity,
-        height: 500,
+        height: 480,
         decoration: BoxDecoration(
           color: sWhiteColor,
           borderRadius: BorderRadius.circular(defaultRadius),
@@ -310,6 +310,38 @@ class SeatPage extends StatelessWidget {
               seat3(),
               seat4(),
               seat5(),
+              Container(
+                margin: const EdgeInsets.only(top: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Your seat',
+                      style: seatStyle3,
+                    ),
+                    Text(
+                      'A3, B3',
+                      style: seatStyle4,
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Total',
+                      style: seatStyle3,
+                    ),
+                    Text(
+                      'IDR 540.000.000',
+                      style: seatPriceStyle,
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -319,10 +351,12 @@ class SeatPage extends StatelessWidget {
     Widget button() {
       return ButtonWidget(
         title: ('Checkout'),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/checkout');
+        },
         width: double.infinity,
         margin: const EdgeInsets.only(
-          bottom: 30,
+          bottom: 10,
         ),
       );
     }
