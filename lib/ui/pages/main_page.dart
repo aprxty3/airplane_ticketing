@@ -9,7 +9,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget buildContent() {
-      return HomePage();
+      return const HomePage();
     }
 
     Widget bottomNav() {
