@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/ui/pages/bonus.dart';
+import 'package:airplane_ticketing/ui/pages/checkout_page.dart';
 import 'package:airplane_ticketing/ui/pages/detail.dart';
 import 'package:airplane_ticketing/ui/pages/home.dart';
 import 'package:airplane_ticketing/ui/pages/onboarding.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/detail': (context) => const DetailPage(),
         '/seat': (context) => const SeatPage(),
+        '/checkout': (context) => const COPage(),
       },
     );
   }
