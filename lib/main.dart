@@ -6,6 +6,7 @@ import 'package:airplane_ticketing/ui/pages/onboarding.dart';
 import 'package:airplane_ticketing/ui/pages/seat_page.dart';
 import 'package:airplane_ticketing/ui/pages/sign_up.dart';
 import 'package:airplane_ticketing/ui/pages/splash.dart';
+import 'package:airplane_ticketing/ui/pages/success.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/detail': (context) => const DetailPage(),
         '/seat': (context) => const SeatPage(),
         '/checkout': (context) => const COPage(),
+        '/success': (context) => const SuccessPage(),
       },
     );
   }
