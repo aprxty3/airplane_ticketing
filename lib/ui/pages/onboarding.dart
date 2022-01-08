@@ -37,8 +37,18 @@ class OnboardPage extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/sign_up');
                   },
-                  margin: const EdgeInsets.only(top: 50, bottom: 80),
+                  isActive: true,
+                  margin: const EdgeInsets.only(top: 50),
                   width: 220,
+                ),
+                ButtonWidget(
+                  title: 'Sign In',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/sign_in');
+                  },
+                  isActive: false,
+                  margin: const EdgeInsets.only(top: 20, bottom: 40),
+                  width: 300,
                 ),
               ],
             ),
