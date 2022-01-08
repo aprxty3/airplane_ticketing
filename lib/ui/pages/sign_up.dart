@@ -4,7 +4,12 @@ import 'package:airplane_ticketing/ui/widget/text_form.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  SignUpPage({Key? key}) : super(key: key);
+
+  TextEditingController nameController = TextEditingController(text: '');
+  TextEditingController emailController = TextEditingController(text: '');
+  TextEditingController passwordController = TextEditingController(text: '');
+  TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -20,38 +25,42 @@ class SignUpPage extends StatelessWidget {
 
     Widget textform() {
       Widget name() {
-        return const TextForm(
+        return TextForm(
           title: 'Full Name',
           hitText: 'Your Full Name',
           isActive: false,
-          bottom: EdgeInsets.only(bottom: 20),
+          bottom: const EdgeInsets.only(bottom: 20),
+          controller: nameController,
         );
       }
 
       Widget email() {
-        return const TextForm(
+        return TextForm(
           title: 'Email Address',
           hitText: 'Input Email',
           isActive: false,
-          bottom: EdgeInsets.only(bottom: 20),
+          bottom: const EdgeInsets.only(bottom: 20),
+          controller: emailController,
         );
       }
 
       Widget password() {
-        return const TextForm(
+        return TextForm(
           title: 'Password',
           hitText: 'Input Password',
           isActive: true,
-          bottom: EdgeInsets.only(bottom: 20),
+          bottom: const EdgeInsets.only(bottom: 20),
+          controller: passwordController,
         );
       }
 
       Widget hobby() {
-        return const TextForm(
+        return TextForm(
           title: 'Hobby',
           hitText: 'Your Hobby',
           isActive: false,
-          bottom: EdgeInsets.only(bottom: 30),
+          bottom: const EdgeInsets.only(bottom: 30),
+          controller: hobbyController,
         );
       }
 
