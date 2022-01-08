@@ -8,10 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SignUpPage extends StatelessWidget {
   SignUpPage({Key? key}) : super(key: key);
 
-  TextEditingController nameController = TextEditingController(text: '');
-  TextEditingController emailController = TextEditingController(text: '');
-  TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController hobbyController = TextEditingController(text: '');
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
+  final TextEditingController hobbyController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class SignUpPage extends StatelessWidget {
           },
           builder: (context, state) {
             if (state is AuthLoading) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
