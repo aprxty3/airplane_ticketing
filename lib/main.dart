@@ -38,15 +38,15 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => const SplashPage(),
-          '/onboard': (context) => const OnboardPage(),
+          '/': (context) =>  SplashPage(),
+          '/onboard': (context) =>  OnboardPage(),
           '/sign_up': (context) => SignUpPage(),
-          '/bonus': (context) => const BonusPage(),
-          '/home': (context) => const MainPage(),
-          '/detail': (context) => const DetailPage(),
-          '/seat': (context) => const SeatPage(),
-          '/checkout': (context) => const COPage(),
-          '/success': (context) => const SuccessPage(),
+          '/bonus': (context) =>  BonusPage(),
+          '/home': (context) =>  MainPage(),
+          '/detail': (context) =>  DetailPage(),
+          '/seat': (context) =>  SeatPage(),
+          '/checkout': (context) =>  COPage(),
+          '/success': (context) =>  SuccessPage(),
         },
       ),
     );
