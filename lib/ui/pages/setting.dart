@@ -20,7 +20,7 @@ class SettingPage extends StatelessWidget {
           );
         } else if (state is AuthInitial) {
           Navigator.pushNamedAndRemoveUntil(
-              context, '/sign_up', (route) => false);
+              context, '/sign_in', (route) => false);
         }
         // TODO: implement listener
       },
