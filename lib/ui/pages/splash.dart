@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +19,23 @@ class _SplashPageState extends State<SplashPage> {
     Timer(
       const Duration(seconds: 5),
       () {
+        User? user = FirebaseAuth.instance.currentUser;
+
+        if (user == null) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/onboard',
+            (route) => false,
+          );
+        } else {
+          print(user.email);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            '/home',
+            (route) => false,
+          );
+        }
+
         Navigator.pushNamed(context, '/onboard');
       },
     );
