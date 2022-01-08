@@ -7,6 +7,8 @@ class ButtonWidget extends StatelessWidget {
   final double width;
   final Function() onPressed;
   final EdgeInsets margin;
+  final bool isActive;
+  final double height;
 
   const ButtonWidget({
     Key? key,
@@ -14,17 +16,19 @@ class ButtonWidget extends StatelessWidget {
     this.width = double.infinity,
     required this.onPressed,
     this.margin = EdgeInsets.zero,
+    this.isActive = true,
+    this.height = 55,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 55,
+      height: height,
       margin: margin,
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: kPrimaryColor,
+          backgroundColor: isActive ? kPrimaryColor : Colors.transparent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(defaultRadius),
           ),
