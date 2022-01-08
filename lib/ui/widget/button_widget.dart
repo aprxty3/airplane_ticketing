@@ -8,7 +8,7 @@ class ButtonWidget extends StatelessWidget {
   final Function() onPressed;
   final EdgeInsets margin;
 
-  const ButtonWidget({
+   ButtonWidget({
     Key? key,
     required this.title,
     this.width = double.infinity,
