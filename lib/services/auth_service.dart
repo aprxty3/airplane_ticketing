@@ -18,6 +18,7 @@ class AuthService {
         id: userCredential.user!.uid,
         email: email,
         name: name,
+        hobby: hobby,
         balance: 28000000,
       );
       await UserService().setUser(user);
