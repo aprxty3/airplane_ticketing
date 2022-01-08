@@ -34,6 +34,7 @@ class TextForm extends StatelessWidget {
           ),
           TextFormField(
             cursorColor: sPrimaryColor,
+            controller: controller,
             obscureText: isActive,
             decoration: InputDecoration(
               hintText: hitText,
