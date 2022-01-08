@@ -49,7 +49,7 @@ class _MainPageState extends State<MainPage> {
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
+            children: const [
               BottomNavIcon(
                 index: 0,
                 imageUrl: 'assets/icon_home.png',
