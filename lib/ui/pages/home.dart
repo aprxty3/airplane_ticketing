@@ -1,8 +1,10 @@
+import 'package:airplane_ticketing/cubit/auth_cubit.dart';
 import 'package:airplane_ticketing/theme.dart';
 
 import 'package:airplane_ticketing/ui/widget/destination.dart';
 import 'package:airplane_ticketing/ui/widget/destination_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,43 +13,51 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget mainPage() {
       Widget header() {
-        return Padding(
-          padding: EdgeInsets.only(left: defaultMargin),
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        return BlocBuilder<AuthCubit, AuthState>(
+          builder: (context, state) {
+            if (state is AuthSuccess) {
+              return Container(
+                margin: EdgeInsets.only(left: defaultMargin),
+                child: Row(
                   children: [
-                    Text(
-                      'Apa Kabs! \nAji Prasetyo',
-                      style: mainStyle,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Apa Kabs! \n${state.user.name}',
+                            style: mainStyle,
+                          ),
+                          const SizedBox(
+                            height: 6,
+                          ),
+                          Text(
+                            'Where to fly today?',
+                            style: shadowStyle,
+                          )
+                        ],
+                      ),
                     ),
-                    const SizedBox(
-                      height: 6,
+                    Container(
+                      width: 60,
+                      height: 60,
+                      margin: const EdgeInsets.only(right: 24),
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage(
+                            'assets/image_profile.png',
+                          ),
+                        ),
+                      ),
                     ),
-                    Text(
-                      'Where to fly today?',
-                      style: shadowStyle,
-                    )
                   ],
                 ),
-              ),
-              Container(
-                width: 60,
-                height: 60,
-                margin: const EdgeInsets.only(right: 24),
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage(
-                      'assets/image_profile.png',
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+              );
+            } else {
+              return const SizedBox();
+            }
+          },
         );
       }
 
