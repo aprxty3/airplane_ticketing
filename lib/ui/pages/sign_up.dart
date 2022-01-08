@@ -130,9 +130,11 @@ class SignUpPage extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 30),
         child: Center(
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/sign_in');
+            },
             child: Text(
-              'Terms and Conditions',
+              'Have a Account? Let\'t Sign In!',
               style: shadowStyle,
             ),
           ),
