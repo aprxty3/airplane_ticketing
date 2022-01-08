@@ -7,12 +7,14 @@ class TextForm extends StatelessWidget {
   final String hitText;
   final bool isActive;
   final EdgeInsets bottom;
+  final TextEditingController controller;
 
   const TextForm({
     Key? key,
     required this.title,
     required this.hitText,
     this.isActive = false,
+    required this.controller,
     this.bottom = EdgeInsets.zero,
   }) : super(key: key);
 
