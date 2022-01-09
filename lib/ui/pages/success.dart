@@ -1,6 +1,8 @@
+import 'package:airplane_ticketing/cubit/pages_cubit.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SuccessPage extends StatelessWidget {
   const SuccessPage({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class SuccessPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
-                height: 10,                                    
+                height: 10,
               ),
               Text(
                 'Are you ready to explore the new \nworld of experiences?',
@@ -38,6 +40,7 @@ class SuccessPage extends StatelessWidget {
               ButtonWidget(
                 title: 'My Booking',
                 onPressed: () {
+                  context.read<PagesCubit>().setPages(1);
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/home', (route) => false);
                 },

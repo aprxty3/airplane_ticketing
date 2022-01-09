@@ -10,366 +10,367 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-class SeatPage extends StatelessWidget {
+class ChooseSeatPage extends StatelessWidget {
   final DestinationModel destination;
 
-  const SeatPage(this.destination, {Key? key}) : super(key: key);
+  const ChooseSeatPage(this.destination, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Widget header() {
+    Widget title() {
       return Container(
-        width: 160,
-        height: 72,
-        margin: const EdgeInsets.only(bottom: 30, top: 65),
+        margin: EdgeInsets.only(top: 50),
         child: Text(
-          'Select Your \nFavorite Seat',
+          'Select Your\nFavorite Seat',
           style: mainStyle,
         ),
       );
     }
 
-    Widget availability() {
-      return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Row(
-            children: [
-              Image.asset(
-                'assets/icon_available.png',
-                width: 16,
+    Widget seatStatus() {
+      return Container(
+        margin: EdgeInsets.only(top: 30),
+        child: Row(
+          children: [
+            // NOTE: AVAILABLE
+            Container(
+              width: 16,
+              height: 16,
+              margin: EdgeInsets.only(right: 6),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_available.png',
+                  ),
+                ),
               ),
-              const SizedBox(
-                width: 6,
+            ),
+            Text(
+              'Available',
+              style: availableStyle,
+            ),
+            // NOTE: SELECTED
+            Container(
+              width: 16,
+              height: 16,
+              margin: EdgeInsets.only(left: 10, right: 6),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_selected.png',
+                  ),
+                ),
               ),
-              Text(
-                'Available',
-                style: availableStyle,
+            ),
+            Text(
+              'Selected',
+              style: availableStyle,
+            ),
+            // NOTE: UNAVAILABLE
+            Container(
+              width: 16,
+              height: 16,
+              margin: EdgeInsets.only(left: 10, right: 6),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_unavailable.png',
+                  ),
+                ),
               ),
-            ],
-          ),
-          Row(
-            children: [
-              Image.asset(
-                'assets/icon_selected.png',
-                width: 16,
-              ),
-              const SizedBox(
-                width: 6,
-              ),
-              Text(
-                'Selected',
-                style: availableStyle,
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              Image.asset(
-                'assets/icon_unavailable.png',
-                width: 16,
-              ),
-              const SizedBox(
-                width: 6,
-              ),
-              Text(
-                'Unavailable',
-                style: availableStyle,
-              ),
-            ],
-          )
-        ],
+            ),
+            Text(
+              'Unavailable',
+              style: availableStyle,
+            ),
+          ],
+        ),
       );
     }
 
-    Widget choseSeat() {
-      Widget indicator() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  'A',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  'B',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  ' ',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  'C',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  'D',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-          ],
-        );
-      }
-
-      Widget seat1() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const AvailabilityWidget(
-              id: 'A1',
-            ),
-            const AvailabilityWidget(
-              id: 'B1',
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  '1',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            const AvailabilityWidget(
-              id: 'C1',
-            ),
-            const AvailabilityWidget(
-              id: 'D1',
-            ),
-          ],
-        );
-      }
-
-      Widget seat2() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const AvailabilityWidget(
-              id: 'A2',
-            ),
-            const AvailabilityWidget(
-              id: 'B2',
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  '2',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            const AvailabilityWidget(
-              id: 'C2',
-            ),
-            const AvailabilityWidget(
-              id: 'D2',
-            ),
-          ],
-        );
-      }
-
-      Widget seat3() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const AvailabilityWidget(
-              id: 'A3',
-            ),
-            const AvailabilityWidget(
-              id: 'B3',
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  '3',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            const AvailabilityWidget(
-              id: 'C3',
-            ),
-            const AvailabilityWidget(
-              id: 'D3',
-            ),
-          ],
-        );
-      }
-
-      Widget seat4() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const AvailabilityWidget(
-              id: 'A4',
-            ),
-            const AvailabilityWidget(
-              id: 'B4',
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  '4',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            const AvailabilityWidget(
-              id: 'C4',
-            ),
-            const AvailabilityWidget(
-              id: 'D4',
-            ),
-          ],
-        );
-      }
-
-      Widget seat5() {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            const AvailabilityWidget(
-              id: 'A5',
-            ),
-            const AvailabilityWidget(
-              id: 'B5',
-            ),
-            Container(
-              margin: const EdgeInsets.all(0),
-              width: 48,
-              height: 48,
-              child: Center(
-                child: Text(
-                  '5',
-                  style: seatStyle1,
-                ),
-              ),
-            ),
-            const AvailabilityWidget(
-              id: 'C5',
-            ),
-            const AvailabilityWidget(
-              id: 'D5',
-            ),
-          ],
-        );
-      }
-
+    Widget selectSeat() {
       return BlocBuilder<SeatCubit, List<String>>(
         builder: (context, state) {
           return Container(
-            margin: const EdgeInsets.symmetric(vertical: 20),
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
             width: double.infinity,
-            height: 480,
-            decoration: BoxDecoration(
-              color: sWhiteColor,
-              borderRadius: BorderRadius.circular(defaultRadius),
+            margin: EdgeInsets.only(top: 30),
+            padding: EdgeInsets.symmetric(
+              horizontal: 22,
+              vertical: 30,
             ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  indicator(),
-                  seat1(),
-                  seat2(),
-                  seat3(),
-                  seat4(),
-                  seat5(),
-                  Container(
-                    margin: const EdgeInsets.only(top: 30),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Your seat',
-                          style: seatStyle3,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(18),
+              color: sWhiteColor,
+            ),
+            child: Column(
+              children: [
+                // NOTE: SEAT INDICATORS
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: Center(
+                        child: Text(
+                          'A',
+                          style: seatStyle1,
                         ),
-                        Text(
-                          state.join(', '),
-                          style: seatStyle4,
-                        ),
-                      ],
+                      ),
                     ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: Center(
+                        child: Text(
+                          'B',
+                          style: seatStyle1,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: Center(
+                        child: Text(
+                          ' ',
+                          style: seatStyle1,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: Center(
+                        child: Text(
+                          'C',
+                          style: seatStyle1,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 48,
+                      height: 48,
+                      child: Center(
+                        child: Text(
+                          'D',
+                          style: seatStyle1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // NOTE: SEAT 1
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AvailabilityWidget(
+                        id: 'A1',
+                        isAvailable: false,
+                      ),
+                      AvailabilityWidget(
+                        id: 'B1',
+                        isAvailable: false,
+                      ),
+                      Container(
+                        width: 48,
+                        height: 48,
+                        child: Center(
+                          child: Text(
+                            '1',
+                            style: seatStyle1,
+                          ),
+                        ),
+                      ),
+                      AvailabilityWidget(
+                        id: 'C1',
+                      ),
+                      AvailabilityWidget(
+                        id: 'D1',
+                      ),
+                    ],
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Total',
-                          style: seatStyle3,
+                ),
+
+                // NOTE: SEAT 2
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AvailabilityWidget(
+                        id: 'A2',
+                      ),
+                      AvailabilityWidget(
+                        id: 'B2',
+                      ),
+                      Container(
+                        width: 48,
+                        height: 48,
+                        child: Center(
+                          child: Text(
+                            '2',
+                            style: seatStyle1,
+                          ),
                         ),
-                        Text(
-                          NumberFormat.currency(
-                            locale: 'id',
-                            symbol: 'IDR ',
-                            decimalDigits: 0,
-                          ).format(state.length * destination.price),
-                          style: seatPriceStyle,
+                      ),
+                      AvailabilityWidget(
+                        id: 'C2',
+                      ),
+                      AvailabilityWidget(
+                        id: 'D2',
+                      ),
+                    ],
+                  ),
+                ),
+                // NOTE: SEAT 3
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AvailabilityWidget(
+                        id: 'A3',
+                      ),
+                      AvailabilityWidget(
+                        id: 'B3',
+                      ),
+                      Container(
+                        width: 48,
+                        height: 48,
+                        child: Center(
+                          child: Text(
+                            '3',
+                            style: seatStyle1,
+                          ),
                         ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      ),
+                      AvailabilityWidget(
+                        id: 'C3',
+                      ),
+                      AvailabilityWidget(
+                        id: 'D3',
+                      ),
+                    ],
+                  ),
+                ),
+                // NOTE: SEAT 4
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AvailabilityWidget(
+                        id: 'A4',
+                      ),
+                      AvailabilityWidget(
+                        id: 'B4',
+                      ),
+                      Container(
+                        width: 48,
+                        height: 48,
+                        child: Center(
+                          child: Text(
+                            '4',
+                            style: seatStyle1,
+                          ),
+                        ),
+                      ),
+                      AvailabilityWidget(
+                        id: 'C4',
+                      ),
+                      AvailabilityWidget(
+                        id: 'D4',
+                      ),
+                    ],
+                  ),
+                ),
+                // NOTE: SEAT 5
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      AvailabilityWidget(
+                        id: 'A5',
+                      ),
+                      AvailabilityWidget(
+                        id: 'B5',
+                      ),
+                      Container(
+                        width: 48,
+                        height: 48,
+                        child: Center(
+                          child: Text(
+                            '5',
+                            style: seatStyle1,
+                          ),
+                        ),
+                      ),
+                      AvailabilityWidget(
+                        id: 'C5',
+                      ),
+                      AvailabilityWidget(
+                        id: 'D5',
+                      ),
+                    ],
+                  ),
+                ),
+
+                // NOTE: YOUR SEAT
+                Container(
+                  margin: EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Your seat',
+                        style: seatStyle3,
+                      ),
+                      Text(
+                        state.join(', '),
+                        style: seatStyle4,
+                      ),
+                    ],
+                  ),
+                ),
+
+                // NOTE: TOTAL
+                Container(
+                  margin: EdgeInsets.only(top: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Total',
+                        style: seatStyle3,
+                      ),
+                      Text(
+                        NumberFormat.currency(
+                          locale: 'id',
+                          symbol: 'IDR ',
+                          decimalDigits: 0,
+                        ).format(state.length * destination.price),
+                        style: seatPriceStyle,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
             ),
           );
         },
       );
     }
 
-    Widget button() {
+    Widget checkoutButton() {
       return BlocBuilder<SeatCubit, List<String>>(
         builder: (context, state) {
           return ButtonWidget(
-            title: ('Checkout'),
+            title: 'Continue to Checkout',
             onPressed: () {
               int price = destination.price * state.length;
 
@@ -391,9 +392,9 @@ class SeatPage extends StatelessWidget {
                 ),
               );
             },
-            width: double.infinity,
-            margin: const EdgeInsets.only(
-              bottom: 10,
+            margin: EdgeInsets.only(
+              top: 30,
+              bottom: 46,
             ),
           );
         },
@@ -403,12 +404,14 @@ class SeatPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: kBgColor,
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+        padding: EdgeInsets.symmetric(
+          horizontal: 24,
+        ),
         children: [
-          header(),
-          availability(),
-          choseSeat(),
-          button(),
+          title(),
+          seatStatus(),
+          selectSeat(),
+          checkoutButton(),
         ],
       ),
     );
