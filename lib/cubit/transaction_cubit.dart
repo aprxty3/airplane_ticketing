@@ -18,7 +18,7 @@ class TransactionCubit extends Cubit<TransactionState> {
     }
   }
 
-  void fetchTransaction() async {
+  void fetchTransactions() async {
     try {
       emit(TransactionLoading());
 
