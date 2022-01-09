@@ -1,5 +1,6 @@
 import 'package:airplane_ticketing/model/destination_model.dart';
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/pages/seat_page.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:airplane_ticketing/ui/widget/interest.dart';
 import 'package:airplane_ticketing/ui/widget/photos.dart';
@@ -239,7 +240,12 @@ class DetailPage extends StatelessWidget {
             ButtonWidget(
               title: 'Book Now',
               onPressed: () {
-                Navigator.pushNamed(context, '/seat');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SeatPage(destination),
+                  ),
+                );
               },
               width: 170,
             ),
