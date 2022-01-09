@@ -1,4 +1,5 @@
 import 'package:airplane_ticketing/cubit/auth_cubit.dart';
+import 'package:airplane_ticketing/cubit/transaction_cubit.dart';
 import 'package:airplane_ticketing/model/transaction_model.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
@@ -275,13 +276,37 @@ class COPage extends StatelessWidget {
     }
 
     Widget button() {
-      return ButtonWidget(
-        title: 'Pay Now',
-        onPressed: () {
-          Navigator.pushNamed(context, '/success');
+      return BlocConsumer<TransactionCubit, TransactionState>(
+        listener: (context, state) {
+          if (state is TransactionSuccess) {
+            Navigator.pushNamedAndRemoveUntil(
+                context, '/success', (route) => false);
+          } else if (state is TransactionFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.error),
+                backgroundColor: Colors.red,
+              ),
+            );
+          }
         },
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 20),
+        builder: (context, state) {
+          if (state is TransactionLoading) {
+            return Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 30),
+              child: const CircularProgressIndicator(),
+            );
+          }
+          return ButtonWidget(
+            title: 'Pay Now',
+            onPressed: () {
+              context.read<TransactionCubit>().createTransaction(transaction);
+            },
+            width: double.infinity,
+            margin: const EdgeInsets.symmetric(vertical: 20),
+          );
+        },
       );
     }
 
