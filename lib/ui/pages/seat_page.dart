@@ -1,6 +1,8 @@
 import 'package:airplane_ticketing/cubit/seat_cubit.dart';
 import 'package:airplane_ticketing/model/destination_model.dart';
+import 'package:airplane_ticketing/model/transaction_model.dart';
 import 'package:airplane_ticketing/theme.dart';
+import 'package:airplane_ticketing/ui/pages/checkout_page.dart';
 import 'package:airplane_ticketing/ui/widget/availability.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
@@ -364,15 +366,37 @@ class SeatPage extends StatelessWidget {
     }
 
     Widget button() {
-      return ButtonWidget(
-        title: ('Checkout'),
-        onPressed: () {
-          Navigator.pushNamed(context, '/checkout');
+      return BlocBuilder<SeatCubit, List<String>>(
+        builder: (context, state) {
+          return ButtonWidget(
+            title: ('Checkout'),
+            onPressed: () {
+              int price = destination.price * state.length;
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => COPage(
+                    TransactionModel(
+                      destination: destination,
+                      amountOfTraveler: state.length,
+                      selectedSeats: state.join(', '),
+                      insurance: true,
+                      refundable: false,
+                      vat: 0.45,
+                      price: price,
+                      grandTotal: price + (price * 0.45).toInt(),
+                    ),
+                  ),
+                ),
+              );
+            },
+            width: double.infinity,
+            margin: const EdgeInsets.only(
+              bottom: 10,
+            ),
+          );
         },
-        width: double.infinity,
-        margin: const EdgeInsets.only(
-          bottom: 10,
-        ),
       );
     }
 
