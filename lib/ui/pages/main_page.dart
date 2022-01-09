@@ -21,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     Widget buildContent(int currentIndex) {
       switch (currentIndex) {
         case 0:
-          return const HomePage();
+          return HomePage();
         case 1:
           return const TransactionPage();
         case 2:
@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
           return const SettingPage();
 
         default:
-          return const HomePage();
+          return HomePage();
       }
     }
 

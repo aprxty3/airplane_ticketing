@@ -8,7 +8,7 @@ part 'destination_state.dart';
 class DestinationCubit extends Cubit<DestinationState> {
   DestinationCubit() : super(DestinationInitial());
 
-  void fetchDestionations() async {
+  void fetchDestinations() async {
     try {
       emit(DestinationLoading());
 
