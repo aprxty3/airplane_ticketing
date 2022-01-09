@@ -1,46 +1,49 @@
+import 'package:airplane_ticketing/model/destination_model.dart';
+import 'package:airplane_ticketing/ui/pages/detail.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';
 
-class DesTile extends StatelessWidget {
-  final String imageUrl;
-  final String destination1;
-  final String destination2;
-  final double rate;
+class DestinationTile extends StatelessWidget {
+  final DestinationModel destination;
 
-  const DesTile({
+  const DestinationTile(
+    this.destination, {
     Key? key,
-    required this.imageUrl,
-    required this.destination1,
-    required this.destination2,
-    this.rate = 0.0,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail');
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => DetailPage(destination),
+        //   ),
+        // );
       },
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: EdgeInsets.only(top: 16),
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(defaultRadius),
           color: sWhiteColor,
+          borderRadius: BorderRadius.circular(18),
         ),
-        padding: const EdgeInsets.all(10),
         child: Row(
           children: [
             Container(
               width: 70,
               height: 70,
-              margin: const EdgeInsets.only(right: 16),
+              margin: EdgeInsets.only(right: 16),
               decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
-                  image: AssetImage(imageUrl),
                   fit: BoxFit.cover,
+                  image: NetworkImage(
+                    destination.imageUrl,
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(defaultRadius),
               ),
             ),
             Expanded(
@@ -48,35 +51,42 @@ class DesTile extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    destination1,
+                    destination.name,
                     style: destinationStyle1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 5,
                   ),
                   Text(
-                    destination2,
+                    destination.city,
                     style: destinationStyle2,
                   ),
                 ],
               ),
             ),
-            Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset(
-                    'assets/icon_star.png',
-                    width: 24,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: 20,
+                  height: 20,
+                  margin: EdgeInsets.only(right: 2),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/icon_star.png',
+                      ),
+                    ),
                   ),
-                  Text(
-                    rate.toString(),
-                    style: ratingStyle1,
-                  )
-                ],
-              ),
-            )
+                ),
+                Text(
+                  destination.rating.toString(),
+                  style: ratingStyle1,
+                ),
+              ],
+            ),
           ],
         ),
       ),

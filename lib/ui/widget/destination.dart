@@ -1,34 +1,37 @@
+import 'package:airplane_ticketing/model/destination_model.dart';
+import 'package:airplane_ticketing/ui/pages/detail.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme.dart';
 
-class PopularDestination extends StatelessWidget {
-  final String imageUrl;
-  final double rate;
-  final String destination1;
-  final String destination2;
+class DestinationCard extends StatelessWidget {
+  final DestinationModel destination;
 
-  const PopularDestination({
+  const DestinationCard(
+    this.destination, {
     Key? key,
-    required this.imageUrl,
-    required this.rate,
-    required this.destination1,
-    required this.destination2,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/detail');
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => DetailPage(destination),
+        //   ),
+        // );
       },
       child: Container(
         width: 200,
         height: 323,
-        margin: const EdgeInsets.symmetric(horizontal: 10),
-        padding: const EdgeInsets.all(10),
+        margin: EdgeInsets.only(
+          left: defaultMargin,
+        ),
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(defaultRadius),
+          borderRadius: BorderRadius.circular(18),
           color: sWhiteColor,
         ),
         child: Column(
@@ -37,56 +40,66 @@ class PopularDestination extends StatelessWidget {
             Container(
               width: 180,
               height: 220,
+              margin: EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(defaultRadius),
+                borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
-                  image: AssetImage(imageUrl),
+                  image: NetworkImage(
+                    destination.imageUrl,
+                  ),
                 ),
               ),
               child: Align(
                 alignment: Alignment.topRight,
                 child: Container(
-                  padding:
-                      const EdgeInsets.only(left: 5.5, bottom: 6, right: 3),
                   width: 55,
                   height: 30,
                   decoration: BoxDecoration(
                     color: sWhiteColor,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(defaultRadius),
+                      bottomLeft: Radius.circular(18),
                     ),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        'assets/icon_star.png',
-                        width: 24,
+                      Container(
+                        width: 20,
+                        height: 20,
+                        margin: EdgeInsets.only(right: 2),
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(
+                              'assets/icon_star.png',
+                            ),
+                          ),
+                        ),
                       ),
                       Text(
-                        rate.toString(),
+                        destination.rating.toString(),
                         style: ratingStyle1,
-                      )
+                      ),
                     ],
                   ),
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 10, top: 20),
+              margin: EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    destination1,
+                    destination.name,
                     style: destinationStyle1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(
+                  SizedBox(
                     height: 5,
                   ),
                   Text(
-                    destination2,
+                    destination.city,
                     style: destinationStyle2,
                   ),
                 ],
