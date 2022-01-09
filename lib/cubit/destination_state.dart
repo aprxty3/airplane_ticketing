@@ -17,7 +17,6 @@ class DestinationSuccess extends DestinationState {
   DestinationSuccess(this.destinations);
 
   @override
-  // TODO: implement props
   List<Object> get props => [destinations];
 }
 
@@ -27,6 +26,5 @@ class DestinationFailed extends DestinationState {
   DestinationFailed(this.error);
 
   @override
-  // TODO: implement props
   List<Object> get props => [error];
 }
