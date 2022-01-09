@@ -16,6 +16,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'cubit/seat_cubit.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -39,6 +41,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DestinationCubit(),
         ),
+        BlocProvider(
+          create: (context) => SeatCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -49,7 +54,6 @@ class MyApp extends StatelessWidget {
           '/sign_in': (context) => SignInPage(),
           '/bonus': (context) => BonusPage(),
           '/home': (context) => MainPage(),
-          '/detail': (context) => DetailPage(),
           '/seat': (context) => SeatPage(),
           '/checkout': (context) => COPage(),
           '/success': (context) => SuccessPage(),
