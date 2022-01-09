@@ -1,10 +1,16 @@
+import 'package:airplane_ticketing/cubit/auth_cubit.dart';
+import 'package:airplane_ticketing/model/transaction_model.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:airplane_ticketing/ui/widget/detail_co.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class COPage extends StatelessWidget {
-  const COPage({Key? key}) : super(key: key);
+  final TransactionModel transaction;
+
+  const COPage(this.transaction, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +73,8 @@ class COPage extends StatelessWidget {
               height: 70,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(defaultRadius),
-                image: const DecorationImage(
-                  image: AssetImage('assets/image_destination1.png'),
+                image: DecorationImage(
+                  image: NetworkImage(transaction.destination.imageUrl),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -78,14 +84,14 @@ class COPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Lake Ciliwung',
+                    transaction.destination.name,
                     style: paymentStyle1,
                   ),
                   const SizedBox(
                     height: 5,
                   ),
                   Text(
-                    'Tangerang',
+                    transaction.destination.city,
                     style: coStyle1,
                   ),
                 ],
@@ -99,7 +105,7 @@ class COPage extends StatelessWidget {
                   width: 24,
                 ),
                 Text(
-                  '4.8',
+                  transaction.destination.rating.toString(),
                   style: ratingStyle1,
                 ),
               ],
@@ -120,37 +126,47 @@ class COPage extends StatelessWidget {
               ),
               DetailCO(
                 detailName: 'Traveler',
-                value: '2 Person',
+                value: '${transaction.amountOfTraveler} Person',
                 valueColor: sPrimaryColor,
               ),
               DetailCO(
                 detailName: 'Seat',
-                value: 'A3, B3',
+                value: transaction.selectedSeats,
                 valueColor: sPrimaryColor,
               ),
               DetailCO(
                 detailName: 'Insurance',
-                value: 'YES',
-                valueColor: sGreenColor,
+                value: transaction.insurance ? 'YES' : 'NO',
+                valueColor:
+                    transaction.insurance ? sGreenColor : sbbPrimaryColor,
               ),
               DetailCO(
                 detailName: 'Refundable',
-                value: 'NO',
-                valueColor: sbbPrimaryColor,
+                value: transaction.refundable ? 'YES' : 'NO',
+                valueColor:
+                    transaction.refundable ? sGreenColor : sbbPrimaryColor,
               ),
               DetailCO(
                 detailName: 'VAT',
-                value: '45%',
+                value: '${(transaction.vat * 100).toStringAsFixed(0)}%',
                 valueColor: sPrimaryColor,
               ),
               DetailCO(
                 detailName: 'Price',
-                value: 'IDR 8.500.690',
+                value: NumberFormat.currency(
+                  locale: 'id',
+                  symbol: 'IDR ',
+                  decimalDigits: 0,
+                ).format(transaction.price),
                 valueColor: sPrimaryColor,
               ),
               DetailCO(
                 detailName: 'Grand Total',
-                value: 'IDR 12.000.000',
+                value: NumberFormat.currency(
+                  locale: 'id',
+                  symbol: 'IDR ',
+                  decimalDigits: 0,
+                ).format(transaction.grandTotal),
                 valueColor: kPrimaryColor,
               ),
             ],
@@ -179,71 +195,82 @@ class COPage extends StatelessWidget {
     }
 
     Widget paymentDetail() {
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 10),
-        padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
-        width: double.infinity,
-        height: 140,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(defaultRadius),
-          color: sWhiteColor,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Payment Details',
-              style: paymentStyle1,
-            ),
-            Row(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(right: 16, top: 16),
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 23, horizontal: 20),
-                  width: 100,
-                  height: 70,
-                  decoration: BoxDecoration(
-                    color: kPrimaryColor,
-                    borderRadius: BorderRadius.circular(defaultRadius),
+      return BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, state) {
+          if (state is AuthSuccess) {
+            return Container(
+              margin: const EdgeInsets.symmetric(vertical: 10),
+              padding: const EdgeInsets.only(left: 20, top: 10, bottom: 10),
+              width: double.infinity,
+              height: 140,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultRadius),
+                color: sWhiteColor,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Payment Details',
+                    style: paymentStyle1,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Row(
                     children: [
-                      Image.asset(
-                        'assets/icon_plane.png',
-                        width: 24,
+                      Container(
+                        margin: const EdgeInsets.only(right: 16, top: 16),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 23, horizontal: 20),
+                        width: 100,
+                        height: 70,
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(defaultRadius),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              'assets/icon_plane.png',
+                              width: 24,
+                            ),
+                            Text(
+                              'Pay',
+                              style: payment,
+                            ),
+                          ],
+                        ),
                       ),
-                      Text(
-                        'Pay',
-                        style: payment,
-                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            NumberFormat.currency(
+                              locale: 'id',
+                              symbol: 'IDR ',
+                              decimalDigits: 0,
+                            ).format(state.user.balance),
+                            style: paymentStyle2,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            'Current Balance',
+                            style: paymentStyle3,
+                          )
+                        ],
+                      )
                     ],
                   ),
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 15,
-                    ),
-                    Text(
-                      'IDR 80.400.000',
-                      style: paymentStyle2,
-                    ),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      'Current Balance',
-                      style: paymentStyle3,
-                    )
-                  ],
-                )
-              ],
-            ),
-          ],
-        ),
+                ],
+              ),
+            );
+          }
+          return const SizedBox();
+        },
       );
     }
 
