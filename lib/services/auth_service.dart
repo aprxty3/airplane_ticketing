@@ -3,7 +3,7 @@ import 'package:airplane_ticketing/services/user_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  FirebaseAuth _auth = FirebaseAuth.instance;
+final  FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<UserModel> signIn({
     required String email,

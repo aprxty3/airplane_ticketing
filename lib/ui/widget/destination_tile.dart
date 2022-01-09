@@ -24,8 +24,8 @@ class DestinationTile extends StatelessWidget {
         );
       },
       child: Container(
-        margin: EdgeInsets.only(top: 16),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.only(top: 16),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: sWhiteColor,
           borderRadius: BorderRadius.circular(18),
@@ -35,7 +35,7 @@ class DestinationTile extends StatelessWidget {
             Container(
               width: 70,
               height: 70,
-              margin: EdgeInsets.only(right: 16),
+              margin: const EdgeInsets.only(right: 16),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
@@ -55,7 +55,7 @@ class DestinationTile extends StatelessWidget {
                     style: destinationStyle1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(
@@ -72,8 +72,8 @@ class DestinationTile extends StatelessWidget {
                 Container(
                   width: 20,
                   height: 20,
-                  margin: EdgeInsets.only(right: 2),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(right: 2),
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
                         'assets/icon_star.png',

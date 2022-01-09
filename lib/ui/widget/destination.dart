@@ -29,7 +29,7 @@ class DestinationCard extends StatelessWidget {
         margin: EdgeInsets.only(
           left: defaultMargin,
         ),
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           color: sWhiteColor,
@@ -40,7 +40,7 @@ class DestinationCard extends StatelessWidget {
             Container(
               width: 180,
               height: 220,
-              margin: EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(18),
                 image: DecorationImage(
@@ -56,7 +56,7 @@ class DestinationCard extends StatelessWidget {
                   height: 30,
                   decoration: BoxDecoration(
                     color: sWhiteColor,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(18),
                     ),
                   ),
@@ -67,8 +67,8 @@ class DestinationCard extends StatelessWidget {
                       Container(
                         width: 20,
                         height: 20,
-                        margin: EdgeInsets.only(right: 2),
-                        decoration: BoxDecoration(
+                        margin: const EdgeInsets.only(right: 2),
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
                               'assets/icon_star.png',
@@ -86,7 +86,7 @@ class DestinationCard extends StatelessWidget {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(left: 10),
+              margin: const EdgeInsets.only(left: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -95,7 +95,7 @@ class DestinationCard extends StatelessWidget {
                     style: destinationStyle1,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(

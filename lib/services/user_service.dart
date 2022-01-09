@@ -2,7 +2,7 @@ import 'package:airplane_ticketing/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserService {
-  CollectionReference _userReference =
+ final CollectionReference _userReference =
       FirebaseFirestore.instance.collection('users');
 
   Future<void> setUser(UserModel user) async {

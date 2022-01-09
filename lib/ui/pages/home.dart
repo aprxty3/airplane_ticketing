@@ -41,11 +41,11 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Howdy,\n${state.user.name}',
+                          'Apa Kabs!,\n${state.user.name}',
                           style: mainStyle,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 6,
                         ),
                         Text(
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     width: 60,
                     height: 60,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       image: DecorationImage(
                         image: AssetImage(
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
               ),
             );
           } else {
-            return SizedBox();
+            return const SizedBox();
           }
         },
       );
@@ -79,7 +79,7 @@ class _HomePageState extends State<HomePage> {
 
     Widget popularDestinations(List<DestinationModel> destinations) {
       return Container(
-        margin: EdgeInsets.only(top: 30),
+        margin: const EdgeInsets.only(top: 30),
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
           );
         }
 
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       },

@@ -3,11 +3,10 @@ import 'package:airplane_ticketing/cubit/destination_cubit.dart';
 import 'package:airplane_ticketing/cubit/pages_cubit.dart';
 import 'package:airplane_ticketing/ui/pages/bonus.dart';
 import 'package:airplane_ticketing/ui/pages/checkout_page.dart';
-import 'package:airplane_ticketing/ui/pages/detail.dart';
 
 import 'package:airplane_ticketing/ui/pages/main_page.dart';
 import 'package:airplane_ticketing/ui/pages/onboarding.dart';
-import 'package:airplane_ticketing/ui/pages/seat_page.dart';
+
 import 'package:airplane_ticketing/ui/pages/sign_in.dart';
 import 'package:airplane_ticketing/ui/pages/sign_up.dart';
 import 'package:airplane_ticketing/ui/pages/splash.dart';
@@ -54,7 +53,6 @@ class MyApp extends StatelessWidget {
           '/sign_in': (context) => SignInPage(),
           '/bonus': (context) => BonusPage(),
           '/home': (context) => MainPage(),
-          '/seat': (context) => SeatPage(),
           '/checkout': (context) => COPage(),
           '/success': (context) => SuccessPage(),
         },
