@@ -143,9 +143,11 @@ class SeatPage extends StatelessWidget {
           children: [
             const AvailabilityWidget(
               index: 2,
+              id: 'A1',
             ),
             const AvailabilityWidget(
               index: 0,
+              id: 'B1',
             ),
             Container(
               margin: const EdgeInsets.all(0),
@@ -160,9 +162,11 @@ class SeatPage extends StatelessWidget {
             ),
             const AvailabilityWidget(
               index: 1,
+              id: 'C1',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'D1',
             ),
           ],
         );
@@ -174,9 +178,11 @@ class SeatPage extends StatelessWidget {
           children: [
             const AvailabilityWidget(
               index: 1,
+              id: 'A2',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'B2',
             ),
             Container(
               margin: const EdgeInsets.all(0),
@@ -191,9 +197,11 @@ class SeatPage extends StatelessWidget {
             ),
             const AvailabilityWidget(
               index: 1,
+              id: 'C2',
             ),
             const AvailabilityWidget(
               index: 1,
+              id: 'D2',
             ),
           ],
         );
@@ -205,9 +213,11 @@ class SeatPage extends StatelessWidget {
           children: [
             const AvailabilityWidget(
               index: 2,
+              id: 'A3',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'B3',
             ),
             Container(
               margin: const EdgeInsets.all(0),
@@ -222,9 +232,11 @@ class SeatPage extends StatelessWidget {
             ),
             const AvailabilityWidget(
               index: 0,
+              id: 'C3',
             ),
             const AvailabilityWidget(
               index: 0,
+              id: 'D3',
             ),
           ],
         );
@@ -236,9 +248,11 @@ class SeatPage extends StatelessWidget {
           children: [
             const AvailabilityWidget(
               index: 0,
+              id: 'A4',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'B4',
             ),
             Container(
               margin: const EdgeInsets.all(0),
@@ -253,9 +267,11 @@ class SeatPage extends StatelessWidget {
             ),
             const AvailabilityWidget(
               index: 0,
+              id: 'C4',
             ),
             const AvailabilityWidget(
               index: 0,
+              id: 'D4',
             ),
           ],
         );
@@ -267,9 +283,11 @@ class SeatPage extends StatelessWidget {
           children: [
             const AvailabilityWidget(
               index: 2,
+              id: 'A5',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'B5',
             ),
             Container(
               margin: const EdgeInsets.all(0),
@@ -284,9 +302,11 @@ class SeatPage extends StatelessWidget {
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'C5',
             ),
             const AvailabilityWidget(
               index: 2,
+              id: 'D5',
             ),
           ],
         );
