@@ -4,67 +4,57 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../theme.dart';
 
 class AvailabilityWidget extends StatelessWidget {
-  final int index;
   final String id;
+  final bool isAvailable;
 
   const AvailabilityWidget({
     Key? key,
-    required this.index,
     required this.id,
+    this.isAvailable = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    backgroundColor() {
-      switch (index) {
-        case 0:
-          return availableColor;
-        case 1:
-          return kPrimaryColor;
-        case 2:
-          return unavailableColor;
+    bool isSelected = context.watch<SeatCubit>().isSelected(id);
 
-        default:
-          return unavailableColor;
+    backgroundColor() {
+      if (!isAvailable) {
+        return unavailableColor;
+      } else {
+        if (isSelected) {
+          return kPrimaryColor;
+        } else {
+          return availableColor;
+        }
       }
     }
 
     borderColor() {
-      switch (index) {
-        case 0:
-          return kPrimaryColor;
-        case 1:
-          return kPrimaryColor;
-        case 2:
-          return unavailableColor;
-
-        default:
-          return unavailableColor;
+      if (!isAvailable) {
+        return unavailableColor;
+      } else {
+        return kPrimaryColor;
       }
     }
 
     child() {
-      switch (index) {
-        case 0:
-          return const SizedBox();
-        case 1:
-          return Center(
-            child: Text(
-              'YOU',
-              style: seatStyle2,
-            ),
-          );
-        case 2:
-          return const SizedBox();
-
-        default:
-          return const SizedBox();
+      if (isSelected) {
+        return Center(
+          child: Text(
+            'YOU',
+            style: seatStyle2,
+          ),
+        );
+      } else {
+        const SizedBox();
       }
     }
 
     return GestureDetector(
       onTap: () {
-        context.read<SeatCubit>().selectSeat(id);
+        if (isAvailable) {
+          context.read<SeatCubit>().selectSeat(id);
+        }
       },
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),

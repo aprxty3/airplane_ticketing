@@ -1,10 +1,17 @@
+import 'package:airplane_ticketing/cubit/seat_cubit.dart';
+import 'package:airplane_ticketing/model/destination_model.dart';
 import 'package:airplane_ticketing/theme.dart';
 import 'package:airplane_ticketing/ui/widget/availability.dart';
 import 'package:airplane_ticketing/ui/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+
 class SeatPage extends StatelessWidget {
-  const SeatPage({Key? key}) : super(key: key);
+  final DestinationModel destination;
+
+  const SeatPage(this.destination, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -142,11 +149,9 @@ class SeatPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const AvailabilityWidget(
-              index: 2,
               id: 'A1',
             ),
             const AvailabilityWidget(
-              index: 0,
               id: 'B1',
             ),
             Container(
@@ -161,11 +166,9 @@ class SeatPage extends StatelessWidget {
               ),
             ),
             const AvailabilityWidget(
-              index: 1,
               id: 'C1',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'D1',
             ),
           ],
@@ -177,11 +180,9 @@ class SeatPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const AvailabilityWidget(
-              index: 1,
               id: 'A2',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'B2',
             ),
             Container(
@@ -196,11 +197,9 @@ class SeatPage extends StatelessWidget {
               ),
             ),
             const AvailabilityWidget(
-              index: 1,
               id: 'C2',
             ),
             const AvailabilityWidget(
-              index: 1,
               id: 'D2',
             ),
           ],
@@ -212,11 +211,9 @@ class SeatPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const AvailabilityWidget(
-              index: 2,
               id: 'A3',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'B3',
             ),
             Container(
@@ -231,11 +228,9 @@ class SeatPage extends StatelessWidget {
               ),
             ),
             const AvailabilityWidget(
-              index: 0,
               id: 'C3',
             ),
             const AvailabilityWidget(
-              index: 0,
               id: 'D3',
             ),
           ],
@@ -247,11 +242,9 @@ class SeatPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const AvailabilityWidget(
-              index: 0,
               id: 'A4',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'B4',
             ),
             Container(
@@ -266,11 +259,9 @@ class SeatPage extends StatelessWidget {
               ),
             ),
             const AvailabilityWidget(
-              index: 0,
               id: 'C4',
             ),
             const AvailabilityWidget(
-              index: 0,
               id: 'D4',
             ),
           ],
@@ -282,11 +273,9 @@ class SeatPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             const AvailabilityWidget(
-              index: 2,
               id: 'A5',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'B5',
             ),
             Container(
@@ -301,70 +290,76 @@ class SeatPage extends StatelessWidget {
               ),
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'C5',
             ),
             const AvailabilityWidget(
-              index: 2,
               id: 'D5',
             ),
           ],
         );
       }
 
-      return Container(
-        margin: const EdgeInsets.symmetric(vertical: 20),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
-        width: double.infinity,
-        height: 480,
-        decoration: BoxDecoration(
-          color: sWhiteColor,
-          borderRadius: BorderRadius.circular(defaultRadius),
-        ),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              indicator(),
-              seat1(),
-              seat2(),
-              seat3(),
-              seat4(),
-              seat5(),
-              Container(
-                margin: const EdgeInsets.only(top: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Your seat',
-                      style: seatStyle3,
+      return BlocBuilder<SeatCubit, List<String>>(
+        builder: (context, state) {
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 20),
+            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+            width: double.infinity,
+            height: 480,
+            decoration: BoxDecoration(
+              color: sWhiteColor,
+              borderRadius: BorderRadius.circular(defaultRadius),
+            ),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  indicator(),
+                  seat1(),
+                  seat2(),
+                  seat3(),
+                  seat4(),
+                  seat5(),
+                  Container(
+                    margin: const EdgeInsets.only(top: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Your seat',
+                          style: seatStyle3,
+                        ),
+                        Text(
+                          state.join(', '),
+                          style: seatStyle4,
+                        ),
+                      ],
                     ),
-                    Text(
-                      'A3, B3',
-                      style: seatStyle4,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Total',
+                          style: seatStyle3,
+                        ),
+                        Text(
+                          NumberFormat.currency(
+                            locale: 'id',
+                            symbol: 'IDR ',
+                            decimalDigits: 0,
+                          ).format(state.length * destination.price),
+                          style: seatPriceStyle,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  )
+                ],
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Total',
-                      style: seatStyle3,
-                    ),
-                    Text(
-                      'IDR 540.000.000',
-                      style: seatPriceStyle,
-                    ),
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       );
     }
 
