@@ -6,7 +6,7 @@ An apps project to get a seat and order airplane ticket.
 https://www.figma.com/file/6l27BPoUwS2arIVBvaMdkH/Airplane?node-id=0%3A1
 
 ## API
-
+Create a API with Firebase Firestore. just Add an Auth Service on Code.
 
 ## Design View
 ![image](https://user-images.githubusercontent.com/73772152/147292210-4a59e27a-1d18-461d-8269-4d71615cadc0.png)
